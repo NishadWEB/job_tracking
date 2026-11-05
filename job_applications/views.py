@@ -24,15 +24,8 @@ def application_create(request, id):
         if form.is_valid():
             application = form.save(commit=False)
             application.job = job_object
-
-            try:
-                with transaction.atomic():
-                    application.save()
-                    form.save_m2m()
-            except IntegrityError:
-                form.add_error("email", "An application with this email address already exists.")
-            else:
-                return redirect("success")
+            application.save()
+            return redirect("success")
     else:
         form = ApplicationForm()
 
@@ -57,17 +50,14 @@ def application_list(request):
 @staff_member_required
 
 def application_detail(request, pk):
-    application = get_object_or_404(
-        Application.objects.select_related("job"),
-        pk=pk,
-    )
+    application = get_object_or_404(Application, pk=pk)
     return render(request, "applications/detail.html", {"application": application})
 
 
 @staff_member_required
 
 def application_update(request, pk):
-    application = get_object_or_404(Application.objects.select_related("job"), pk=pk)
+    application = get_object_or_404(Application, pk=pk)
     previous_resume = application.resume
 
     if request.method == "POST":
@@ -101,7 +91,7 @@ def application_update(request, pk):
 @staff_member_required
 
 def application_delete(request, pk):
-    application = get_object_or_404(Application.objects.select_related("job"), pk=pk)
+    application = get_object_or_404(Application, pk=pk)
 
     if request.method == "POST":
         resume = application.resume
