@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+
+{% block title %}Application Submitted{% endblock %}
+
+{% block content %}
+<div class="message-card">
+    <h2>Application submitted successfully!</h2>
+    <p>Thank you for applying. Your application has been received.</p>
+    <a class="button-link" href="{% url 'job' %}">Back to Jobs</a>
+</div>
+{% endblock %}

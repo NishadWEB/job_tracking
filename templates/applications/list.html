@@ -1,0 +1,49 @@
+{% extends 'home.html' %}
+
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="page-heading">
+        <h2>Submitted Applications</h2>
+        <span>{{ applications|length }} application{{ applications|length|pluralize }}</span>
+    </div>
+
+    {% if applications %}
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Applicant</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Job</th>
+                        <th>Applied Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for application in applications %}
+                    <tr>
+                        <td>{{ application.name }}</td>
+                        <td>{{ application.email }}</td>
+                        <td>{{ application.phone }}</td>
+                        <td>{{ application.job.title }}</td>
+                        <td>{{ application.applied_date|date:"M d, Y" }}</td>
+                        <td>{{ application.get_status_display }}</td>
+                        <td class="action-cell">
+                            <a href="{% url 'application_detail' application.pk %}">View</a>
+                            <a href="{% url 'application_update' application.pk %}">Edit</a>
+                            <a class="danger-link" href="{% url 'application_delete' application.pk %}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No applications have been submitted yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

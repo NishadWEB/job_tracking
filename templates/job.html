@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+
+{% block title %}Jobs{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <h2>Current Job Openings</h2>
+    {% if jobs %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Department</th>
+                    <th>Location</th>
+                    <th>Employment Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td>{{ job.title }}</td>
+                    <td>{{ job.dept }}</td>
+                    <td>{{ job.location }}</td>
+                    <td>{{ job.job_type }}</td>
+                    <td><a href="{% url 'application_form' job.id %}">Apply</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No job openings are available right now.</p>
+    {% endif %}
+</div>
+{% endblock %}

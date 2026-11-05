@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+
+{% block title %}
+    {% if is_update %}Edit Application{% else %}Job Application{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>{% if is_update %}Edit Application{% else %}Apply for {{ job.title }}{% endif %}</h2>
+    <p class="muted-text">Enter the applicant details below. Resume files must be PDF, DOC or DOCX and no larger than 5 MB.</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-actions">
+            <button type="submit">{% if is_update %}Save Changes{% else %}Submit Application{% endif %}</button>
+            {% if is_update %}
+                <a class="secondary-link" href="{% url 'application_detail' application.pk %}">Cancel</a>
+            {% else %}
+                <a class="secondary-link" href="{% url 'job' %}">Cancel</a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}

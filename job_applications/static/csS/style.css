@@ -1,0 +1,316 @@
+*{
+    font-family: sans-serif;
+    margin: 0;
+}
+
+
+body{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    padding: 20px 20px;
+    background-color: white;
+    box-shadow: 0px 2px 13px -6px lightblue;
+    margin-bottom: 15px;
+
+    display: flex;
+    align-items: center;
+}
+
+header h3{
+    margin: 0;
+    margin-right: auto;
+}
+
+nav{
+    margin-right: 20px;
+    display: flex;
+    gap: 50px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: box-shadow 0.3s;
+}
+
+nav a:hover{
+    box-shadow: 0px 0px 11px -3px lightblue;
+    transform: scale(1.02);
+}
+
+main{
+    flex: 1;
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    box-shadow: 0px -2px 13px -6px lightblue;
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+p{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.home-div{
+    width: 500px;
+}
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+th,
+td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #222;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f7f7f7;
+}
+
+table a {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+table a:hover {
+    background-color: #1d4ed8;
+}
+
+main div{
+    margin-bottom: 8px;
+}
+
+
+/* Additional styles for the application forms and HR pages. */
+body {
+    min-height: 100vh;
+    height: auto;
+}
+
+.content-wrapper,
+.page-container {
+    width: 100%;
+    max-width: 1100px;
+    box-sizing: border-box;
+}
+
+.page-container h2,
+.form-card h2,
+.detail-card h2,
+.message-card h2 {
+    margin-bottom: 18px;
+}
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.page-heading h2 {
+    margin-bottom: 0;
+}
+
+.page-heading span,
+.muted-text {
+    color: #666;
+}
+
+.home-div {
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-card,
+.detail-card,
+.message-card {
+    width: 100%;
+    max-width: 650px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.form-card form p {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 16px 0;
+}
+
+.form-card input:not([type="checkbox"]),
+.form-card select,
+.form-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.form-card input[type="file"] {
+    border: 0;
+    padding-left: 0;
+}
+
+.form-card ul.errorlist {
+    color: #b91c1c;
+    padding-left: 20px;
+    margin: 5px 0;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+button,
+.button-link {
+    display: inline-block;
+    padding: 9px 15px;
+    border: 0;
+    border-radius: 5px;
+    background: #2563eb;
+    color: #fff;
+    text-decoration: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover,
+.button-link:hover {
+    background: #1d4ed8;
+    color: #fff;
+}
+
+.secondary-link {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.secondary-link:hover {
+    background: #f5f5f5;
+}
+
+.danger-link {
+    background: #dc2626;
+}
+
+.danger-link:hover {
+    background: #b91c1c;
+}
+
+.danger-button {
+    background: #dc2626;
+}
+
+.danger-button:hover {
+    background: #b91c1c;
+}
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.action-cell {
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+.action-cell a {
+    margin: 2px;
+    padding: 6px 9px;
+}
+
+.detail-list {
+    display: grid;
+    grid-template-columns: minmax(130px, 1fr) 2fr;
+    gap: 12px 18px;
+}
+
+.detail-list dt {
+    font-weight: 700;
+}
+
+.detail-list dd {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+    header {
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-right: 0;
+    }
+
+    .form-card,
+    .detail-card,
+    .message-card {
+        padding: 16px;
+    }
+
+    .detail-list {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .detail-list dd {
+        margin-bottom: 10px;
+    }
+}

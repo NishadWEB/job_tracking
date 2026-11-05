@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+
+{% block title %}Application Details{% endblock %}
+
+{% block content %}
+<div class="detail-card">
+    <h2>Application Details</h2>
+    <dl class="detail-list">
+        <dt>Applicant name</dt>
+        <dd>{{ application.name }}</dd>
+
+        <dt>Email</dt>
+        <dd>{{ application.email }}</dd>
+
+        <dt>Phone</dt>
+        <dd>{{ application.phone }}</dd>
+
+        <dt>Job title</dt>
+        <dd>{{ application.job.title }}</dd>
+
+        <dt>Department</dt>
+        <dd>{{ application.job.dept }}</dd>
+
+        <dt>Applied date</dt>
+        <dd>{{ application.applied_date|date:"M d, Y" }}</dd>
+
+        <dt>Status</dt>
+        <dd>{{ application.get_status_display }}</dd>
+
+        <dt>Resume</dt>
+        <dd>
+            {% if application.resume %}
+                <a href="{{ application.resume.url }}" target="_blank" rel="noopener">Open / download resume</a>
+            {% else %}
+                No resume uploaded
+            {% endif %}
+        </dd>
+    </dl>
+
+    <div class="form-actions">
+        <a class="button-link" href="{% url 'application_update' application.pk %}">Edit Application</a>
+        <a class="danger-link" href="{% url 'application_delete' application.pk %}">Delete Application</a>
+        <a class="secondary-link" href="{% url 'application_list' %}">Back to Applications</a>
+    </div>
+</div>
+{% endblock %}
